@@ -1,7 +1,7 @@
 import "./container.css";
 // ! redux
 import { useDispatch, useSelector } from "react-redux";
-import { incrementScore } from "./containerSlice";
+import { incrementScore, win, incrementQuizSection } from "./containerSlice";
 // hooks
 import { useState, useId, useRef, Dispatch } from "react";
 import { AnyAction } from "@reduxjs/toolkit";
@@ -14,11 +14,9 @@ export default function Container() {
   let arrOfQuestions = useSelector((state: any) => state.quiz.arrOfQuestions),
     arrOfChoices = useSelector((state: any) => state.quiz.arrOfChoices),
     answers = useSelector((state: any) => state.quiz.answers),
-    score = useSelector((state: any) => state.quiz);
+    quiz = useSelector((state: any) => state.quiz.quizSection);
   // ! useState
-  let [quiz, setQuiz] = useState(0);
   let [btn, setBtn] = useState(false);
-  // let [score, setScore] = useState(0);
   let [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -49,7 +47,7 @@ export default function Container() {
                       );
                       if (answers[quiz] == selectedQuiz?.textContent) {
                         selectedQuiz?.classList.add("bg-green-500");
-                        dispatch(incrementScore);
+                        dispatch(incrementScore());
                       } else {
                         selectedQuiz?.classList.add("bg-red-500");
                       }
@@ -66,10 +64,10 @@ export default function Container() {
         {btn && (
           <button
             onClick={() => {
-              setQuiz(++quiz);
+              if (quiz === 3) dispatch(win());
+              dispatch(incrementQuizSection());
               setBtn(!btn);
               setIsClicked(!isClicked);
-              // if (quiz === 4) alert(`your score is ${score}`);
               let element = document.querySelectorAll(".li-quiz");
               for (let i of element) {
                 i.classList.remove("bg-green-500");

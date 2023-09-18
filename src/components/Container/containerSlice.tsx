@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
+  quizSection: 0,
   score: 0,
+  winner: false,
   arrOfQuestions: [
     "which is largest animal in the world?",
     "Which is the smallest country in the world?",
@@ -24,8 +26,20 @@ let containerSlice = createSlice({
     incrementScore: (state) => {
       state.score += 1;
     },
+    win: (state) => {
+      state.winner = !state.winner;
+    },
+    incrementQuizSection: (state) => {
+      state.quizSection += 1;
+    },
+    playAgain: (state) => {
+      state.score = 0;
+      state.winner = false;
+      state.quizSection = 0;
+    },
   },
 });
 
-export let { incrementScore } = containerSlice.actions;
+export let { incrementScore, win, playAgain, incrementQuizSection } =
+  containerSlice.actions;
 export default containerSlice.reducer;
