@@ -1,13 +1,13 @@
 import "./style/input.css";
 import "./App.css";
 // components
-import { Container } from "./components";
+import { Container, WinningBoard } from "./components";
 function App() {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
         <Container />
-        <div className="absolute">sb</div>
+        <WinningBoard />
       </div>
     </>
   );
