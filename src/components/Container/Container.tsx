@@ -21,11 +21,17 @@ export default function Container() {
 
   return (
     <>
-      <div className="relative  bg-white w-[55rem] h-[auto] rounded-2xl px-[2.7rem]  flex flex-col">
-        <div className="flex flex-col justify-evenly h-[30rem] mt-2 ">
+      <div
+        id="container"
+        className="relative  bg-white w-[55rem] h-[auto] rounded-2xl px-[2.7rem]  flex flex-col"
+      >
+        <div
+          id="quiz-container"
+          className="flex flex-col justify-evenly h-[30rem] mt-2 "
+        >
           <h1 className="text-[2rem] font-semibold ">Simple Quiz</h1>
           <hr className="bg-red-500 h-1  rounded-2xlo" />
-          <p className="text-[1.7rem] font-medium">
+          <p className="p-quiz text-[1.7rem] font-medium">
             {`${quiz + 1}. ${arrOfQuestions[quiz]}`}
           </p>
           <ul>

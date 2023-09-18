@@ -5,3 +5,29 @@ html {
 body {
   background-color: rgb(0, 89, 255);
 }
+
+@media screen and (max-width: 800px) {
+  #container {
+    width: 95vw;
+  }
+  #quiz-container {
+    height: 35rem;
+  }
+  .p-score {
+    text-align: center;
+  }
+  li {
+    height: 4rem;
+    font-size: 2rem !important;
+  }
+  #winningBoard {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .p-quiz {
+    font-size: 1rem !important;
+    text-align: center;
+  }
+}

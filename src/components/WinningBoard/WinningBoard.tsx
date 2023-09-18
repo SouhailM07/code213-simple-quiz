@@ -11,11 +11,16 @@ export default function WinningBoard() {
   let score = useSelector((state: any) => state.quiz.score);
   return (
     <>
-      <div className="absolute bg-white h-[25rem] w-[55rem] rounded-xl justify-center flex ">
+      <div
+        id="winningBoard"
+        className="absolute bg-white h-[25rem] w-[55rem] rounded-xl justify-center flex "
+      >
         <div className=" w-[90%] h-[19rem] flex flex-col justify-evenly ">
           <h1 className="text-[2rem] font-semibold ">Simple Quiz</h1>
           <hr className="bg-red-500 h-1  rounded-2xlo" />
-          <p className="text-[2rem] font-semibold">You score is {score}</p>
+          <p className="p-score text-[2rem] font-semibold">
+            You score is {score}
+          </p>
           <button
             onClick={() => {
               dispatch(playAgain());
